@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PokemonCreateComponent } from './src/components/pokemon-create/pokemon-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonCreateComponent
   ],
   imports: [
     BrowserModule,
