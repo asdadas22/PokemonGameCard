@@ -1,0 +1,6 @@
+<h3 *ngIf="cardUrl === ''">No has seleccionado una carta</h3>
+<div class="row">
+    <div class="col">
+        <img class="cardImg" alt="card" *ngIf="cardUrl !== ''" [src]="cardUrl" >
+    </div>
+</div>

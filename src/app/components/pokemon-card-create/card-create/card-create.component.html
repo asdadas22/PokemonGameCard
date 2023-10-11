@@ -1,0 +1,20 @@
+<h3>Agrega las cartas a tu mazo</h3>
+
+<form [formGroup]="formData">
+    <label>Elige el tipo del pokemon</label>
+    <select formControlName="selectElemntType" (change)="changeType()" class="input-select-basic">
+        <option selected="" [ngValue]="null">Selecciona una opción</option>
+        <option *ngFor="let type of pokeTypeList" [ngValue]="type.code"> {{ type.name }} </option>
+    </select>
+
+    <label>Elige tu carta pokemon</label>
+    <select formControlName="selectPokeList" class="input-select-basic">
+        <option [ngValue]="null">Selecciona una opción</option>
+        <option *ngFor="let pokemon of pokeListSelected" 
+                [ngValue]="pokemon.id"> {{ pokemon.name }} 
+        </option>
+    </select>
+    <button (click)="addToDeck()" type="button" class="btn btn-success">Agregar</button>
+    <button (click)="goToDesk()" type="button" class="btn btn-success">Crear</button>
+</form>
+  
