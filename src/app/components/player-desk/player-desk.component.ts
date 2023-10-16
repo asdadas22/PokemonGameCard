@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlayerDeskComponent implements OnInit {
   playerDeskList: any;
+  titleAlign: string = 'center';
   constructor(private _Activatedroute:ActivatedRoute) {
     this.playerDeskList = _Activatedroute.snapshot.queryParams['desk'];
   }

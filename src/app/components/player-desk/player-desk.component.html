@@ -1,5 +1,5 @@
-<h1>TUS CARTAS!</h1>
-<div *ngFor="let card of playerDeskList">
+<h1 [ngStyle]="{ 'text-align': titleAlign }">TUS CARTAS!</h1>
+<div class="card-list-container" *ngFor="let card of playerDeskList">
     <app-card [cardTypeSelected]="card.type"></app-card>
 </div>
 

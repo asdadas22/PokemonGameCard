@@ -14,7 +14,13 @@
                 [ngValue]="pokemon.id"> {{ pokemon.name }} 
         </option>
     </select>
-    <button (click)="addToDeck()" type="button" class="btn btn-success">Agregar</button>
-    <button (click)="goToDesk()" type="button" class="btn btn-success">Crear</button>
+    <div class="button-container">
+        <div class="btn-left">
+            <button (click)="addToDeck()" type="button" class="btn btn-success">Agregar</button>
+        </div>
+        <div *ngIf="playerDeckSelected.length > 0" class="btn-right">
+            <button (click)="goToDesk()" type="button" class="btn btn-success">Crear</button>
+        </div>
+    </div>
 </form>
   

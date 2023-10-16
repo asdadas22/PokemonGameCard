@@ -1,5 +1,14 @@
+h1 {
+    text-align: center;
+}
+
 .create-container {
 }
 
 .view-container {
+}
+
+.white-container {
+    width: 90%;
+    margin: 0 auto;
 }

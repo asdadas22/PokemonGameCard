@@ -26,6 +26,7 @@ export class CardCreateComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('A:', this.pokeTypeList);
+    this.playerDeckSelected.length
   }
 
 
@@ -48,5 +49,4 @@ export class CardCreateComponent implements OnInit {
   goToDesk() {
     this.router.navigate(['player-desk'], { queryParams: { desk: JSON.stringify(this.playerDeckSelected) } });
   }
-
 }
