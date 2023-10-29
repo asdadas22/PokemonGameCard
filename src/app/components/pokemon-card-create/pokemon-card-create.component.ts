@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PokeTypes } from 'src/app/common/enums';
+import { Store } from '@ngrx/store';
+import { PokeData, PokeTypes } from 'src/app/common/enums';
+
+interface AppState {
+  playerDesk: PokeData[];
+}
 
 @Component({
   selector: 'app-pokemon-card-create',
@@ -11,9 +16,12 @@ export class PokemonCardCreateComponent implements OnInit {
   pokeTypeList = PokeTypes;
   cardTypeSelected: number = -1;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.store.subscribe( state => {
+      console.log(state);
+    });
   }
 
   changeTypeSelected(type: number) {
