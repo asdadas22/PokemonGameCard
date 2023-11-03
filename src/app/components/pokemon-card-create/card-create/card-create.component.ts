@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { PokeData, PokemonLists } from 'src/app/common/enums';
+import { SetPlayerDesk } from 'src/store/actions/mainStore.actions';
 
 @Component({
   selector: 'app-card-create',
@@ -17,7 +19,8 @@ export class CardCreateComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private router: Router) { 
+    private router: Router,
+    private store: Store) { 
     this.formData = this._fb.group({
       selectElemntType: [null],
       selectPokeList: [null]
@@ -47,6 +50,8 @@ export class CardCreateComponent implements OnInit {
   }
 
   goToDesk() {
-    this.router.navigate(['player-desk'], { queryParams: { desk: JSON.stringify(this.playerDeckSelected) } });
+    const playerDeskJson = JSON.stringify(this.playerDeckSelected);
+    this.store.dispatch(SetPlayerDesk({ playerDesk: playerDeskJson }));
+    this.router.navigate(['player-desk'], { queryParams: { desk: playerDeskJson } });
   }
 }

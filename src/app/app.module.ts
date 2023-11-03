@@ -8,6 +8,8 @@ import { CardCreateComponent } from './components/pokemon-card-create/card-creat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/pokemon-card-create/card/card.component';
 import { PlayerDeskComponent } from './components/player-desk/player-desk.component';
+import { StoreModule } from '@ngrx/store';
+import { mainReducer } from 'src/store/mainStore.store';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PlayerDeskComponent } from './components/player-desk/player-desk.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(mainReducer),
   ],
   providers: [],
   bootstrap: [AppComponent]
