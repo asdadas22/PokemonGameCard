@@ -10,6 +10,8 @@ import { CardComponent } from './components/pokemon-card-create/card/card.compon
 import { PlayerDeskComponent } from './components/player-desk/player-desk.component';
 import { StoreModule } from '@ngrx/store';
 import { mainReducer } from 'src/store/mainStore.store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { mainReducer } from 'src/store/mainStore.store';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(mainReducer),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

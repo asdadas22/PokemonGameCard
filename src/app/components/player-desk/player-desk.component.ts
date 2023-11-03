@@ -12,12 +12,12 @@ import { MainStore } from 'src/store';
 export class PlayerDeskComponent implements OnInit {
   playerDeskList: any;
   titleAlign: string = 'center';
+  subs = new Subscription();
 
   playerDesk$ = this.store.select(MainStore.mainSelector.playerDesk);
 
   constructor(private _Activatedroute:ActivatedRoute,
-    private store: Store,
-    private subs: Subscription) {
+    private store: Store) {
     this.playerDeskList = _Activatedroute.snapshot.queryParams['desk'];
   }
 
