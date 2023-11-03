@@ -1,13 +1,20 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { PokeData, PokemonLists } from 'src/app/common/enums';
+import *  as actions from 'src/app/store/actions/ui.actions';
+
+interface AppState {
+  playerDesk: PokeData[];
+};
 
 @Component({
   selector: 'app-card-create',
   templateUrl: './card-create.component.html',
   styleUrls: ['./card-create.component.css']
 })
+
 export class CardCreateComponent implements OnInit {
   formData: FormGroup;
   @Input() pokeTypeList: any;
@@ -17,17 +24,15 @@ export class CardCreateComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private router: Router) { 
+    private router: Router,
+    private store: Store<AppState>) { 
     this.formData = this._fb.group({
       selectElemntType: [null],
       selectPokeList: [null]
     });
   }
 
-  ngOnInit(): void {
-    console.log('A:', this.pokeTypeList);
-    this.playerDeckSelected.length
-  }
+  ngOnInit(): void { }
 
 
   changeType() {
@@ -47,6 +52,7 @@ export class CardCreateComponent implements OnInit {
   }
 
   goToDesk() {
+    this.store.dispatch(actions.addCard({ playerDesk: this.playerDeckSelected[0] }));
     this.router.navigate(['player-desk'], { queryParams: { desk: JSON.stringify(this.playerDeckSelected) } });
   }
 }

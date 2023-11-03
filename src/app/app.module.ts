@@ -8,8 +8,11 @@ import { CardCreateComponent } from './components/pokemon-card-create/card-creat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/pokemon-card-create/card/card.component';
 import { PlayerDeskComponent } from './components/player-desk/player-desk.component';
-import { StoreModule } from '@ngrx/store';
-import { uiReducer } from './store/reducers/ui.reducer';
+import { ActionReducer, StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { UIReducer, UIState } from './store/reducers/ui.reducer';
+import { reducers } from './store/reducers/ui.store';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { uiReducer } from './store/reducers/ui.reducer';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ ui: uiReducer })
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
