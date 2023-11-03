@@ -11,9 +11,9 @@ export const mainStoreInitialState: mainStoreDataState = {
 }
 
 const reducer = createReducer(mainStoreInitialState,
-    on(SetPlayerDesk, (state: mainStoreDataState) => ({
+    on(SetPlayerDesk, (state: mainStoreDataState, { playerDesk }) => ({
         ...state,
-        playerDesk: 'hola'
+        playerDesk
     }))
 );
 
