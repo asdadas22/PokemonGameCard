@@ -1,13 +1,14 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { SetPlayerDesk } from "./actions/mainStore.actions";
+import { PokeData } from "src/app/common/enums";
 
 
 export interface mainStoreDataState {
-    playerDesk: string;
+    playerDesk: PokeData[];
 }
 
 export const mainStoreInitialState: mainStoreDataState = {
-    playerDesk: 'hola'
+    playerDesk: []
 }
 
 const reducer = createReducer(mainStoreInitialState,

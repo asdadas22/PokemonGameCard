@@ -50,8 +50,7 @@ export class CardCreateComponent implements OnInit {
   }
 
   goToDesk() {
-    const playerDeskJson = JSON.stringify(this.playerDeckSelected);
-    this.store.dispatch(SetPlayerDesk({ playerDesk: playerDeskJson }));
-    this.router.navigate(['player-desk'], { queryParams: { desk: playerDeskJson } });
+    this.store.dispatch(SetPlayerDesk({ playerDesk: this.playerDeckSelected }));
+    this.router.navigate(['player-desk']);
   }
 }
