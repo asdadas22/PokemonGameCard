@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { Action, createReducer, on } from "@ngrx/store";
-import { SetPlayerDesk } from "./actions/mainStore.actions";
+import * as action from "./actions/mainStore.actions";
 import { PokeData } from "src/app/common/enums";
 
 
@@ -12,10 +13,11 @@ export const mainStoreInitialState: mainStoreDataState = {
 }
 
 const reducer = createReducer(mainStoreInitialState,
-    on(SetPlayerDesk, (state: mainStoreDataState, { playerDesk }) => ({
+    on(action.SetPlayerDesk, (state: mainStoreDataState, { playerDesk }) => ({
         ...state,
         playerDesk
-    }))
+    })),
+    on(action.ClearState, () => mainStoreInitialState)
 );
 
 export function mainStoreReducer(state: mainStoreDataState, action: Action): mainStoreDataState {

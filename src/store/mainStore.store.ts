@@ -5,10 +5,10 @@ import { mainStoreReducer } from "./mainStore.reducer";
 const featureSelector = (state: mainStoreDataState) => state;
 
 export const mainSelector = {
-    playerDesk: createSelector(featureSelector, (state) => state.playerDesk)
+    desk: createSelector(featureSelector, (state) => state)
 }
 
 // Por una regla del ts lint que no encontre como apagar tuve que dejar el lint apagado
 export const mainReducer: ActionReducerMap<mainStoreDataState> = {    
-    playerDesk: mainStoreReducer    
+    desk: mainStoreReducer    
 }

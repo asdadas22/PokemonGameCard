@@ -10,7 +10,7 @@ import { SetPlayerDesk } from 'src/store/actions/mainStore.actions';
   templateUrl: './card-create.component.html',
   styleUrls: ['./card-create.component.css']
 })
-export class CardCreateComponent implements OnInit {
+export class CardCreateComponent {
   formData: FormGroup;
   @Input() pokeTypeList: any;
   @Output() typeSelected = new EventEmitter<number>();
@@ -27,11 +27,6 @@ export class CardCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log('A:', this.pokeTypeList);
-    this.playerDeckSelected.length
-  }
-
 
   changeType() {
     const pokeList = PokemonLists;
@@ -46,7 +41,6 @@ export class CardCreateComponent implements OnInit {
     if (pokemonObject) {
       this.playerDeckSelected.push(pokemonObject);
     }
-    console.log('Lista de cartas agregados:', this.playerDeckSelected);
   }
 
   goToDesk() {

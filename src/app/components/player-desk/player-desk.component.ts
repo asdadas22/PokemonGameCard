@@ -15,14 +15,15 @@ export class PlayerDeskComponent implements OnInit {
   titleAlign: string = 'center';
   subs = new Subscription();
 
-  playerDesk$ = this.store.select(MainStore.mainSelector.playerDesk);
+  playerDesk$ = this.store.select(MainStore.mainSelector.desk);
 
   constructor(private store: Store) {
   }
 
   ngOnInit() {
     this.subs.add(this.playerDesk$.subscribe((state) => {
-      this.playerDeskList = state.playerDesk;
+      console.log('EL STATE ES: ', state.desk.playerDesk)
+      this.playerDeskList = state.desk.playerDesk;
     }));
   }
 

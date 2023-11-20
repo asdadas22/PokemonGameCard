@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ElementType } from 'src/app/common/enums';
+import { RemoveCardFromDesk } from 'src/store/actions/mainStore.actions';
 
 @Component({
   selector: 'app-card',
@@ -9,9 +11,10 @@ import { ElementType } from 'src/app/common/enums';
 export class CardComponent implements OnInit {
 
   @Input() cardTypeSelected: any;
+  @Input() cardID: string = '';
   cardUrl: string = '';
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +43,11 @@ export class CardComponent implements OnInit {
         this.cardUrl += 'planta.png';
         break;
     } 
+  }
+
+  deleteCard() {
+    console.log('EL ID DE LA CARTA ES: ', this.cardID);
+    this.store.dispatch(RemoveCardFromDesk({ id: this.cardID }));
   }
 
 }
