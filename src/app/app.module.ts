@@ -12,14 +12,12 @@ import { StoreModule } from '@ngrx/store';
 import { mainReducer } from 'src/store/mainStore.store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { LoginComponentComponent } from './components/login-component/login-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonCardCreateComponent,
-    CardCreateComponent,
-    CardComponent,
-    PlayerDeskComponent
+    LoginComponentComponent
   ],
   imports: [
     BrowserModule,

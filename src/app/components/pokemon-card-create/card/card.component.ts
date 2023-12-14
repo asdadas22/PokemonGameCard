@@ -12,6 +12,8 @@ export class CardComponent implements OnInit {
 
   @Input() cardTypeSelected: any;
   @Input() cardID: string = '';
+  @Input() canDelete: boolean = false;
+
   cardUrl: string = '';
 
   constructor(private store: Store) { }

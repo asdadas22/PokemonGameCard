@@ -1,9 +1,10 @@
+// @ts-nocheck
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { PokeData } from 'src/app/common/enums';
 import { MainStore } from 'src/store';
+import { AppState } from 'src/store/mainStore.store';
 
 @Component({
   selector: 'app-player-desk',
@@ -17,12 +18,11 @@ export class PlayerDeskComponent implements OnInit {
 
   playerDesk$ = this.store.select(MainStore.mainSelector.desk);
 
-  constructor(private store: Store) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit() {
     this.subs.add(this.playerDesk$.subscribe((state) => {
-      console.log('EL STATE ES: ', state.desk.playerDesk)
       this.playerDeskList = state.desk.playerDesk;
     }));
   }

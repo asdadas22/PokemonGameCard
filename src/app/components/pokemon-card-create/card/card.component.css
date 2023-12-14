@@ -3,3 +3,12 @@
     display: block;
     margin: 0 auto;
 }
+
+.delete-button {
+    display: block;
+    margin: 10px auto;
+}
+
+.card-container {
+    min-height: 200px;
+}

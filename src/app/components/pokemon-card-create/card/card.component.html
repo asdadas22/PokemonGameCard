@@ -1,3 +1,5 @@
 <h3 *ngIf="cardUrl === ''">No has seleccionado una carta</h3>
-<img class="cardImg" alt="card" *ngIf="cardUrl !== ''" [src]="cardUrl">
-<button type="button" class="btn btn-danger" (click)="deleteCard()">Eliminar</button>
+<div class="card-container">
+    <img class="cardImg" alt="card" *ngIf="cardUrl !== ''" [src]="cardUrl">
+    <button *ngIf="canDelete" type="button" class="btn btn-danger delete-button" (click)="deleteCard()">Eliminar</button>
+</div>

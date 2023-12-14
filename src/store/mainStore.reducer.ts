@@ -9,7 +9,7 @@ export interface mainStoreDataState {
 }
 
 export const mainStoreInitialState: mainStoreDataState = {
-    playerDesk: []
+    playerDesk: [{id: '0', hp: 100, name: 'charmander', type: 1}]
 }
 
 const reducer = createReducer(mainStoreInitialState,
